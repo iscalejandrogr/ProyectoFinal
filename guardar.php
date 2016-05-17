@@ -1,11 +1,6 @@
 <?php
 //Se Agrega el archivo que contine la conexion a la BD
-//include "conexion.php";
-//print_r($_FILES);
-$file = $_FILES['file']['name'];
-$new_image_name = "namethisimage.jpg";
-move_uploaded_file($_FILES["file"]["tmp_name"], "images/".$new_image_name);
-/*
+include "conexion.php";
 $nom=$_POST['nomb'];
 $dir=$_POST['direc'];
 $rfc=$_POST['Rfc'];
@@ -23,5 +18,5 @@ if($res){
 	}else{
   	echo "Se produjo un error al momento de registar los datos:".mysqli_error();
 		}
-mysqli_close($conexion);*/
+mysqli_close($conexion);
 ?>
