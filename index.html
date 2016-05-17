@@ -92,12 +92,12 @@ document.addEventListener("deviceready",function (){
 		 	params.value2 = "param";
 		 	options.params = params;
 		 	var ft = new FileTransfer();
-		 	ft.upload(foto,"http://iscmoviles.890m.com/guardar.php",function(r){
+		 	ft.upload(foto,encodeURI("http://iscmoviles.890m.com/guardar.php"),function(r){
 		 	//ft.upload(foto,"guardar.php",function(r){
 		 	//navigator.notification.confirm("El archivo: "+r.response,null, "Notificacion");
 			alert("El archivo: "+r.response);
 		 }, function(err){
-		 alert("Error de transferencia: "+err.code);
+		 alert("Error de transferencia: "+err.code+" Recurso de error: " + err.source+" Detino de error:"+err.target);
 		 //navigator.notification.alert("Error: "+err.code,null, "Error de Envío");
 		 }, options);
 	 }
