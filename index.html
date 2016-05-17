@@ -83,7 +83,8 @@ document.addEventListener("deviceready",function (){
 	function uploadPhoto(foto) {
 		 	var options = new FileUploadOptions();
 		 	options.fileKey="file";
-		 	options.fileName=jQuery("#txtNomServ").val();
+		 	//options.fileName=jQuery("#txtNomServ").val();
+			options.fileName="mifoto.jpg"
 			//options.fileName="Prueba";
 			//alert("Ruta: "+foto+" Nombre: "+options.fileName);
 		 	options.mimeType="image/jpeg";
