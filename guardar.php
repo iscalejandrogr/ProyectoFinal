@@ -1,7 +1,7 @@
 <?php
 //Se Agrega el archivo que contine la conexion a la BD
-include "conexion.php";
-print_r($_FILES);
+//include "conexion.php";
+//print_r($_FILES);
 $new_image_name = "namethisimage.jpg";
 move_uploaded_file($_FILES["file"]["tmp_name"], "images/".$new_image_name);
 /*
