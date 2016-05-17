@@ -4,7 +4,7 @@
 <link href="css/jquery.mobile-1.4.5.css" rel="stylesheet" />
 <link href="css/jquery.mobile.theme-1.4.5.css" rel="stylesheet" />
 <link href="css/jquery.mobile.structure-1.4.5.css" rel="stylesheet" />
-<script src="phonegap.js" type="text/javascript"></script>
+<script src="cordova.js" type="text/javascript"></script>
 <script src="js/jquery-2.1.4.min.js" type="text/javascript" ></script>
 <script src="js/jquery.mobile-1.4.5.js" type="text/javascript"></script>
 <!--script src="js/json2.js" type="text/javascript"></script-->
@@ -92,12 +92,12 @@ document.addEventListener("deviceready",function (){
 		 	params.value2 = "param";
 		 	options.params = params;
 		 	var ft = new FileTransfer();
-		 	ft.upload(foto,"http://itslmoviles.260mb.net/subirArchivo/upload.php",function(r){
+		 	ft.upload(foto,"http://iscmoviles.890m.com/guardar.php",function(r){
 		 	//ft.upload(foto,"guardar.php",function(r){
 		 	//navigator.notification.confirm("El archivo: "+r.response,null, "Notificacion");
 			alert("El archivo: "+r.response);
 		 }, function(err){
-		 alert("Error: "+err.code);
+		 alert("Error de transferencia: "+err);
 		 //navigator.notification.alert("Error: "+err.code,null, "Error de Envío");
 		 }, options);
 	 }
