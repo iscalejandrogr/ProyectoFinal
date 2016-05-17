@@ -97,7 +97,7 @@ document.addEventListener("deviceready",function (){
 		 	//navigator.notification.confirm("El archivo: "+r.response,null, "Notificacion");
 			alert("El archivo: "+r.response);
 		 }, function(err){
-		 alert("Error de transferencia: "+err);
+		 alert("Error de transferencia: "+err.code);
 		 //navigator.notification.alert("Error: "+err.code,null, "Error de Envío");
 		 }, options);
 	 }
