@@ -83,7 +83,7 @@ document.addEventListener("deviceready",function (){
 							options.params = params;
 							var ft = new FileTransfer();
 								ft.upload(ruta, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
-							}
+
 							function win(r) {
 								alert("Code = " + r.responseCode);
 								alert("Response = " + r.response);
