@@ -123,8 +123,8 @@ document.addEventListener("deviceready",function (){
 	        function uploadPhoto2(imageURI) {
 	            var options = new FileUploadOptions();
 	            options.fileKey="file";
-	            //options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-							options.fileName="prueba";
+	            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+							//options.fileName="prueba";
 							alert("nombre del archivo a enviar:"+options.fileName);
 	            options.mimeType="image/jpeg";
 
