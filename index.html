@@ -23,8 +23,9 @@ document.addEventListener("deviceready",function (){
 			navigator.device.capture.captureImage(function (Foto){
 			FotoGrafia=Foto;
 			ruta=Foto[0].fullPath;
+			alert("1: ruta: "+ruta+ " Nombre: "+Foto.lastIndexOf('/')+1);
 			//colocar la imagen en la aplicación utilizando una etiqueta <img>
-			jQuery("#imagen").append('<img src="'+ruta+'" width="100%" />').attr('rel',ruta);
+			jQuery("#imagen").append('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
 			},function (error){
 			navigator.notification.alert("Error: "+error.code,null,"Captura de error");
 			},{limit:1});
@@ -74,7 +75,7 @@ document.addEventListener("deviceready",function (){
 					}*/
 							var options = new FileUploadOptions();
 							options.fileKey="file";
-							options.fileName=ruta.substr(ruta.lastIndexOf('/')+1);//posible cambio a valor de control
+							options.fileName=FotoGrafia.substr(FotoGrafia.lastIndexOf('/')+1);//posible cambio a valor de control
 							//options.fileName=jQuery("#txtRFC").val();
 							options.mimeType="image/jpeg";
 
@@ -83,7 +84,7 @@ document.addEventListener("deviceready",function (){
 							params.value2 = "param";
 							options.params = params;
 							var ft = new FileTransfer();
-								ft.upload(ruta, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
+								ft.upload(FotoGrafia, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
 
 							function win(r) {
 								alert("Code = " + r.responseCode);
@@ -192,8 +193,8 @@ document.addEventListener("deviceready",function (){
 					</div>
 					<input type="button" value="Tomar Foto" id="btnTomarFoto"  />
 					<div id="imagen"></div>
-					<img id="fotoLoc" src="imgLocal/06.jpg" width="100%" />
-					<!--input type="button" value="Subir Foto" id="btnSubirFoto"  /-->
+					<!--img id="fotoLoc" src="imgLocal/06.jpg" width="100%" />
+					<input type="button" value="Subir Foto" id="btnSubirFoto"  /-->
 					<input type="button" value="Guardar" id="btnGuardar"  />
     </div>
     <div data-role="footer" data-position="fixed">
