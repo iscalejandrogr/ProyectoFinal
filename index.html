@@ -23,7 +23,7 @@ document.addEventListener("deviceready",function (){
 			navigator.device.capture.captureImage(function (Foto){
 			FotoGrafia=Foto;
 			ruta=Foto[0].fullPath;
-			alert("1: ruta: "+ruta+ " Varible foto: "+Foto+"variable fotografia: "+FotoGrafia);
+			alert("1: ruta: "+ruta+ " Extraccion: "+Foto.substr(Foto.lastIndexOf('/')+1));
 			//colocar la imagen en la aplicación utilizando una etiqueta <img>
 			jQuery("#imagen").append('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
 			},function (error){
@@ -75,8 +75,8 @@ document.addEventListener("deviceready",function (){
 					}*/
 							var options = new FileUploadOptions();
 							options.fileKey="file";
-							//options.fileName=FotoGrafia.substr(FotoGrafia.lastIndexOf('/')+1);//posible cambio a valor de control
-							options.fileName=jQuery("#txtRFC").val();
+							options.fileName=FotoGrafia.substr(FotoGrafia.lastIndexOf('/')+1);//posible cambio a valor de control
+							//options.fileName=jQuery("#txtRFC").val();
 							alert("nombre del archivo a enviar:"+options.fileName);
 							options.mimeType="image/jpeg";
 
@@ -85,7 +85,7 @@ document.addEventListener("deviceready",function (){
 							params.value2 = "param";
 							options.params = params;
 							var ft = new FileTransfer();
-								ft.upload(FotoGrafia, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
+								ft.upload(FotoGrafia[0], encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
 
 							function win(r) {
 								alert("Code = " + r.responseCode);
