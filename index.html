@@ -75,7 +75,7 @@ document.addEventListener("deviceready",function (){
 					}*/
 							var options = new FileUploadOptions();
 							options.fileKey="file";
-							options.fileName=FotoGrafia.substr(FotoGrafia.lastIndexOf('/')+1);//posible cambio a valor de control
+							options.fileName=FotoGrafia[0].substr(FotoGrafia[0].lastIndexOf('/')+1);//posible cambio a valor de control
 							//options.fileName=jQuery("#txtRFC").val();
 							alert("nombre del archivo a enviar:"+options.fileName);
 							options.mimeType="image/jpeg";
