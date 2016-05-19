@@ -85,7 +85,7 @@ document.addEventListener("deviceready",function (){
 							params.value2 = "param";
 							options.params = params;
 							var ft = new FileTransfer();
-							var rutaImage=jQuery("#fotoLoc").attr("src");
+							var rutaImage=jQuery("#imagenFot").attr("src");
 								//ft.upload(FotoGrafia[0].fullPath, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
 								ft.upload(rutaImage, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
 
