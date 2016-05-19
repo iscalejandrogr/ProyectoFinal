@@ -23,7 +23,7 @@ document.addEventListener("deviceready",function (){
 			navigator.device.capture.captureImage(function (Foto){
 			FotoGrafia=Foto;
 			ruta=Foto[0].fullPath;
-			alert("1: ruta: "+ruta+ " Varible foto: "+Foto+" variable fotografia: "+FotoGrafia);
+			alert("1: ruta: "+ruta+ " Varible foto: "+Foto+"variable fotografia: "+FotoGrafia);
 			//colocar la imagen en la aplicación utilizando una etiqueta <img>
 			jQuery("#imagen").append('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
 			},function (error){
@@ -77,7 +77,7 @@ document.addEventListener("deviceready",function (){
 							options.fileKey="file";
 							//options.fileName=FotoGrafia.substr(FotoGrafia.lastIndexOf('/')+1);//posible cambio a valor de control
 							options.fileName=jQuery("#txtRFC").val();
-							alert("nombre del archivo a enviar:"options.fileName);
+							alert("nombre del archivo a enviar:"+options.fileName);
 							options.mimeType="image/jpeg";
 
 							var params = {};
