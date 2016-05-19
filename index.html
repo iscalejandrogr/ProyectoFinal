@@ -103,14 +103,14 @@ document.addEventListener("deviceready",function (){
 				}
 		});
 
-		/*jQuery("#btnSubirFoto").tap(function (){
+		jQuery("#btnSubirFoto").tap(function (){
 			var rutaIMG=jQuery("#fotoLoc").attr("src");
-			uploadPhoto(rutaIMG);
+			uploadPhoto1(rutaIMG);
 		});
 
-	function uploadPhoto(foto) {
+	function uploadPhoto1(foto) {
 	 		navigator.camera.getPicture(
-	                uploadPhoto,
+	                uploadPhoto2,
 	                function(message) { alert('get picture failed'); },
 	                {
 	                    quality         : 50,
@@ -119,10 +119,11 @@ document.addEventListener("deviceready",function (){
 	                }
 	            );
 
-	        function uploadPhoto(imageURI) {
+	        function uploadPhoto2(imageURI) {
 	            var options = new FileUploadOptions();
 	            options.fileKey="file";
 	            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+							alert("nombre del archivo a enviar:"+options.fileName);
 	            options.mimeType="image/jpeg";
 
 	            var params = {};
@@ -146,7 +147,7 @@ document.addEventListener("deviceready",function (){
 	            alert("upload error source " + error.source);
 	            alert("upload error target " + error.target);
 	        }
-	 }*/
+	 }
 
 },false);
 </script>
@@ -196,8 +197,8 @@ document.addEventListener("deviceready",function (){
 					</div>
 					<input type="button" value="Tomar Foto" id="btnTomarFoto"  />
 					<div id="imagen"></div>
-					<!--img id="fotoLoc" src="imgLocal/06.jpg" width="100%" />
-					<input type="button" value="Subir Foto" id="btnSubirFoto"  /-->
+					<img id="fotoLoc" src="imgLocal/06.jpg" width="100%" />
+					<input type="button" value="Subir Foto" id="btnSubirFoto"  />
 					<input type="button" value="Guardar" id="btnGuardar"  />
     </div>
     <div data-role="footer" data-position="fixed">
