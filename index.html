@@ -28,7 +28,7 @@ document.addEventListener("deviceready",function (){
 			jQuery("#imagen").append('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
 			},function (error){
 			navigator.notification.alert("Error: "+error.code,null,"Captura de error");
-			},{limit:1});
+		},{quality:50,limit:1});//se agrego quality
 		});
 
 		jQuery("#btnCords").tap(function (){
@@ -68,11 +68,12 @@ document.addEventListener("deviceready",function (){
 					}).done(function(mensaje){
 						//alert("Respuesta1: "+JSON.stringify(mensaje, null, 4));
 						alert(mensaje);
+						uploadPhoto2(FotoGrafia[0]);
 						/*if(mensaje){
 						navigator.notification.alert("Respuesta2:"+mensaje, null, "Notificacion", "Aceptar");
 						}else{
 						navigator.notification.alert("Los datos no fueron enviados correctamente", null, "Error de Registro", "Aceptar");
-					}*/
+					}*//*
 							var options = new FileUploadOptions();
 							options.fileKey="file";
 							//options.fileName=FotoGrafia[0].substr(FotoGrafia[0].lastIndexOf('/')+1);//posible cambio a valor de control
@@ -98,15 +99,15 @@ document.addEventListener("deviceready",function (){
 								alert("An error has occurred: Code = " + error.code);
 								alert("upload error source " + error.source);
 								alert("upload error target " + error.target);
-							}
+							}*/
 					});
 				}
 		});
 
-		jQuery("#btnSubirFoto").tap(function (){
+	/*	jQuery("#btnSubirFoto").tap(function (){
 			var rutaIMG=jQuery("#fotoLoc").attr("src");
 			uploadPhoto1(rutaIMG);
-		});
+		});*/
 
 	function uploadPhoto1(foto) {
 	 		navigator.camera.getPicture(
@@ -122,7 +123,8 @@ document.addEventListener("deviceready",function (){
 	        function uploadPhoto2(imageURI) {
 	            var options = new FileUploadOptions();
 	            options.fileKey="file";
-	            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+	            //options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+							options.fileName="prueba";
 							alert("nombre del archivo a enviar:"+options.fileName);
 	            options.mimeType="image/jpeg";
 
