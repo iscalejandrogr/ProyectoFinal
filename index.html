@@ -68,7 +68,7 @@ document.addEventListener("deviceready",function (){
 					}).done(function(mensaje){
 						//alert("Respuesta1: "+JSON.stringify(mensaje, null, 4));
 						alert(mensaje);
-						uploadPhoto2(FotoGrafia[0]);
+						uploadPhoto(FotoGrafia[0]);
 						/*if(mensaje){
 						navigator.notification.alert("Respuesta2:"+mensaje, null, "Notificacion", "Aceptar");
 						}else{
@@ -104,12 +104,12 @@ document.addEventListener("deviceready",function (){
 				}
 		});
 
-	/*	jQuery("#btnSubirFoto").tap(function (){
+	jQuery("#btnSubirFoto").tap(function (){
 			var rutaIMG=jQuery("#fotoLoc").attr("src");
-			uploadPhoto1(rutaIMG);
-		});*/
+			uploadPhoto(rutaIMG);
+		});
 
-	function uploadPhoto1(foto) {
+	function uploadPhoto(foto) {
 	 		navigator.camera.getPicture(
 	                uploadPhoto2,
 	                function(message) { alert('get picture failed'); },
@@ -120,7 +120,7 @@ document.addEventListener("deviceready",function (){
 	                }
 	            );
 
-	        function uploadPhoto2(imageURI) {
+	        function uploadPhoto(imageURI) {
 	            var options = new FileUploadOptions();
 	            options.fileKey="file";
 	            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
