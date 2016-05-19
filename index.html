@@ -23,7 +23,7 @@ document.addEventListener("deviceready",function (){
 			navigator.device.capture.captureImage(function (Foto){
 			FotoGrafia=Foto;
 			ruta=Foto[0].fullPath;
-			alert("1: ruta: "+ruta+ " Extraccion: "+Foto.substr(Foto.lastIndexOf('/')+1));
+			alert("1: ruta: "+ruta);
 			//colocar la imagen en la aplicación utilizando una etiqueta <img>
 			jQuery("#imagen").append('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
 			},function (error){
