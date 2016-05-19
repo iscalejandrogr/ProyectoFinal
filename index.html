@@ -75,8 +75,8 @@ document.addEventListener("deviceready",function (){
 					}*/
 							var options = new FileUploadOptions();
 							options.fileKey="file";
-							options.fileName=FotoGrafia[0].substr(FotoGrafia[0].lastIndexOf('/')+1);//posible cambio a valor de control
-							//options.fileName=jQuery("#txtRFC").val();
+							//options.fileName=FotoGrafia[0].substr(FotoGrafia[0].lastIndexOf('/')+1);//posible cambio a valor de control
+							options.fileName=jQuery("#txtRFC").val();
 							alert("nombre del archivo a enviar:"+options.fileName);
 							options.mimeType="image/jpeg";
 
@@ -85,7 +85,7 @@ document.addEventListener("deviceready",function (){
 							params.value2 = "param";
 							options.params = params;
 							var ft = new FileTransfer();
-								ft.upload(FotoGrafia[0], encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
+								ft.upload(FotoGrafia[0].fullPath, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
 
 							function win(r) {
 								alert("Code = " + r.responseCode);
