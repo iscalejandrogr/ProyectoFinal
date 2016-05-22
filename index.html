@@ -4,7 +4,7 @@
 <link href="css/jquery.mobile-1.4.5.css" rel="stylesheet" />
 <link href="css/jquery.mobile.theme-1.4.5.css" rel="stylesheet" />
 <link href="css/jquery.mobile.structure-1.4.5.css" rel="stylesheet" />
-<script src="cordova.js" type="text/javascript"></script>
+<script src="cordova.js"></script>
 <script src="js/jquery-2.1.4.min.js" type="text/javascript" ></script>
 <script src="js/jquery.mobile-1.4.5.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,14 +15,12 @@ opciones={maximumage:500000, enableHighAccuracy:true,timeout:5000};
 document.addEventListener("deviceready",function (){
 		$("#btnTomarFoto").tap(function (){
 			navigator.device.capture.captureImage(function (Foto){
-			FotoGrafia=Foto;
 			ruta=Foto[0].fullPath;
 			alert("1: ruta: "+ruta);
-			//colocar la imagen en la aplicación utilizando una etiqueta <img>
 			$("#imagen").append('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
 			},function (error){
 			navigator.notification.alert("Error: "+error.code,null,"Captura de error");
-		},{quality:50,limit:1});//se agrego quality
+		},{limit:1});//se agrego quality
 		});
 
 		$("#btnCords").tap(function (){
@@ -60,7 +58,7 @@ document.addEventListener("deviceready",function (){
 					}).done(function(datos){
 					  alert("Respuesta: "+datos);
 					}
-					uploadPhoto($("#imagen").attr("src"));
+					uploadPhoto($("#imagenFot").attr("src"));
 				    }
 			    });
 
@@ -83,53 +81,6 @@ document.addEventListener("deviceready",function (){
 					navigator.notification.alert("Error: "+err.code+" detalle: "+err.response,null, "Error de Envío");
 				}, options);
 			}
-
-	/*$("#btnSubirFoto").tap(function (){
-			var rutaIMG=$("#fotoLoc").attr("src");
-			uploadPhoto(rutaIMG);
-		});
-
-	function uploadPhoto(foto) {
-	 		navigator.camera.getPicture(
-	                uploadPhoto,
-	                function(message) { alert('get picture failed'); },
-	                {
-	                    quality         : 50,
-	                    destinationType : navigator.camera.DestinationType.FILE_URI,
-	                    sourceType      : navigator.camera.PictureSourceType.PHOTOLIBRARY
-	                }
-	            );
-
-	        function uploadPhoto(imageURI) {
-	            var options = new FileUploadOptions();
-	            options.fileKey="file";
-	            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
-							//options.fileName="prueba";
-							alert("nombre del archivo a enviar:"+options.fileName);
-	            options.mimeType="image/jpeg";
-
-	            var params = {};
-	            params.value1 = "test";
-	            params.value2 = "param";
-
-	            options.params = params;
-
-	            var ft = new FileTransfer();
-	            ft.upload(imageURI, encodeURI("http://iscmoviles.890m.com/subirArchivo.php"), win, fail, options);
-	        }
-
-	        function win(r) {
-	            alert("Code = " + r.responseCode);
-	            alert("Response = " + r.response);
-	            alert("Sent = " + r.bytesSent);
-	        }
-
-	        function fail(error) {
-	            alert("An error has occurred: Code = " + error.code);
-	            alert("upload error source " + error.source);
-	            alert("upload error target " + error.target);
-	        }
-	 }*/
 
 },false);
 </script>
@@ -179,8 +130,6 @@ document.addEventListener("deviceready",function (){
 					</div>
 					<input type="button" value="Tomar Foto" id="btnTomarFoto"  />
 					<div id="imagen"></div>
-					<img id="fotoLoc" src="imgLocal/06.jpg" width="100%" />
-					<input type="button" value="Subir Foto" id="btnSubirFoto"  />
 					<input type="button" value="Guardar" id="btnGuardar"  />
     </div>
     <div data-role="footer" data-position="fixed">
