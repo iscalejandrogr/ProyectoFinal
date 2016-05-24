@@ -9,6 +9,7 @@
 <script src="js/jquery.mobile-1.4.5.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript">
+$(document).on("pageinit","#principal", function(e, data){
 opciones={maximumage:500000, enableHighAccuracy:true,timeout:5000};
 
 document.addEventListener("deviceready",function (){
@@ -17,7 +18,7 @@ document.addEventListener("deviceready",function (){
 			navigator.device.capture.captureImage(function (Foto){
 			ruta=Foto[0].fullPath;
 			alert("1: ruta: "+ruta);
-			$("#imagen").append('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
+			$("#imagen").html('<img id="imagenFot" src="'+ruta+'" width="100%" />').attr('rel',ruta);
 			},function (error){
 			navigator.notification.alert("Error: "+error.code,null,"Captura de error");
 		},{limit:1});//se agrego quality
@@ -64,7 +65,7 @@ document.addEventListener("deviceready",function (){
 			  });
 
 			 function uploadPhoto(foto) {
-				//alert("si entro: "+foto);
+				alert("si entro: "+foto);
 				var options = new FileUploadOptions();
 				options.fileKey="file";
 				options.fileName=$("#txtRFC").val();
@@ -84,6 +85,8 @@ document.addEventListener("deviceready",function (){
 			}
 
 },false);
+
+});
 </script>
 <style type="text/css">
 	p{
